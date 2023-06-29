@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netisens_gallery/home.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -9,21 +10,33 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+
+  void initState(){
+    super.initState();
+    _navigatehome();
+  }
+
+  _navigatehome()async{
+    await
+    Future.delayed(Duration(milliseconds: 3000 ),(){});
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => DummyPage(title: "",) ));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
+        backgroundColor: Color.fromRGBO(0x1B, 0x06, 0x36, 1),
 
-      backgroundColor: Colors.black,
-      body: Center(child: Text("This is the start of your application, and this is suppose to be the splash screen")),
-
-      body: Center
-        (child: Text(
-          "Welcome to Netisens Gallery",
-          style: TextStyle(
-            color: Colors.orange,
-            fontSize: 35,
-            fontWeight: FontWeight.bold,
-          ),
-      ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+                Center(
+                child: Image.asset('images/netisens_logo.png',),
+                ),
+            ],
+        ),
       ),
     );
   }
