@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:netisens_gallery/SplashScreen.dart';
 import 'package:netisens_gallery/first_onboarding_screen.dart';
 import 'package:netisens_gallery/fourth_onboarding_screen.dart';
+import 'package:netisens_gallery/home_page.dart';
 import 'package:netisens_gallery/second_onboarding_screen.dart';
 import 'package:netisens_gallery/third_onboarding_screen.dart';
 
@@ -85,7 +86,7 @@ class _PrimaryOnBoardingState extends State<PrimaryOnBoarding> {
           Positioned(
             bottom: 20,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 15),
               width: screenWidth,
               color: Colors.transparent,
               child: Row(
@@ -109,7 +110,7 @@ class _PrimaryOnBoardingState extends State<PrimaryOnBoarding> {
                   InkWell(
                     onTap: () {
                       if (activePage == pages.length - 1) {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const SplashScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const CarouselPage()));
                       }
                       else {
                         _pageController.nextPage(duration: const Duration(milliseconds: 800), curve: Curves.easeInOutQuint);
@@ -117,18 +118,20 @@ class _PrimaryOnBoardingState extends State<PrimaryOnBoarding> {
                     },
 
                     child: AnimatedContainer(
-                      alignment: Alignment.center,
+                      // alignment: Alignment.center,
                       duration: const Duration(milliseconds: 300),
-                      height: screenHeight  / 16.9,
+                      height: screenHeight  / 26.9,
                       width: (activePage == (pages.length - 1)) ? 200 : 75,
                       decoration: BoxDecoration(
                           color:Colors.transparent,
                           borderRadius: BorderRadius.circular(60)),
-                      child: (activePage == (pages.length - 1)) ? const Text("Get Started",
+                      child: (activePage == (pages.length - 1)) ? const Text("Continue",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 17,
+
                         ),
+                        textAlign: TextAlign.end,
                       )
                           : const Icon(
                         Icons.keyboard_double_arrow_right,
